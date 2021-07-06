@@ -26,7 +26,10 @@ button,
 textarea, 
 p {
   font-size: inherit;
-  font-weight: 200;
+  font-weight: 100;
+  font-size: 15px;
+  color: var(--black);
+
 }
 
 h1{

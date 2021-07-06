@@ -3,7 +3,8 @@ import Card from './Card'
 import styled from 'styled-components/macro'
 
 export default function App() {
-  const url = 'https://www.anapioficeandfire.com/api/houses?pageSize=10'
+  const url = 'https://www.anapioficeandfire.com/api/houses'
+
   const [houses, setHouses] = useState(null)
 
   React.useEffect(() => {
@@ -18,7 +19,7 @@ export default function App() {
   return (
     <>
       <h1>Game of Thrones</h1>
-      <h2>Houses</h2>
+      <SubTitle>- List of Houses -</SubTitle>
       <HouseList>
         {houses &&
           houses.map((house, index) => <Card key={index} house={house} />)}
@@ -30,4 +31,10 @@ export default function App() {
 const HouseList = styled.div`
   display: grid;
   justify-items: center;
+`
+const SubTitle = styled.p`
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  font-weight: 100;
 `

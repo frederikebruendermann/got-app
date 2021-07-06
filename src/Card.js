@@ -39,9 +39,9 @@ export default function Card({ house }) {
       {isActive && (
         <Details>
           <LiEl>📍 {region}</LiEl>
-          {currentLord !== '' ? <LiEl>Current Lord: {currentLord}</LiEl> : null}
+          {currentLord !== '' ? <LiEl>🤴🏽 {currentLord}</LiEl> : null}
+          {coatOfArms !== '' ? <LiEl>🚩 {coatOfArms}</LiEl> : null}
           {founded !== '' ? <LiEl>Founded: {founded}</LiEl> : null}{' '}
-          {coatOfArms !== '' ? <LiEl>Coat of Arms: {coatOfArms}</LiEl> : null}
           {words !== '' ? <LiEl>Words: {words}</LiEl> : null}
           {seats[0] !== '' ? <LiEl>Seats: {seats}</LiEl> : null}
           {diedOut !== '' ? <LiEl>Died Out: {diedOut}</LiEl> : null}
@@ -65,8 +65,8 @@ const CardWrapper = styled.section`
   list-style: none;
   display: grid;
   align-items: center;
-  grid-template-columns: 7fr 3fr;
-  grid-template-rows: 1fr; ;
+  /* grid-template-columns: 7fr 3fr;
+  grid-template-rows: 1fr; ; */
 `
 
 const Details = styled.ul`
@@ -82,4 +82,5 @@ const SubTitle = styled.h2`
 const LiEl = styled.li`
   font-size: 10px;
   font-weight: 200;
+  margin: 5px;
 `
