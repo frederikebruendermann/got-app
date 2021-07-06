@@ -1,6 +1,6 @@
+import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
-import PropTypes from 'prop-types'
 
 Card.propTypes = {
   houses: PropTypes.arrayOf(
@@ -34,28 +34,28 @@ export default function Card({ house }) {
 
   return (
     <CardWrapper index={index}>
-      <h2>{name}</h2>{' '}
+      <SubTitle>{name}</SubTitle>{' '}
       <button onClick={() => setIsActive(!isActive)}>Details</button>
       {isActive && (
-        <ul>
-          <li>📍 {region}</li>
-          {currentLord !== '' ? <li>Current Lord: {currentLord}</li> : null}
-          {founded !== '' ? <li>Founded: {founded}</li> : null}{' '}
-          {coatOfArms !== '' ? <li>Coat of Arms: {coatOfArms}</li> : null}
-          {words !== '' ? <li>Words: {words}</li> : null}
-          {seats[0] !== '' ? <li>Seats: {seats}</li> : null}
-          {diedOut !== '' ? <li>Died Out: {diedOut}</li> : null}
-        </ul>
+        <Details>
+          <LiEl>📍 {region}</LiEl>
+          {currentLord !== '' ? <LiEl>Current Lord: {currentLord}</LiEl> : null}
+          {founded !== '' ? <LiEl>Founded: {founded}</LiEl> : null}{' '}
+          {coatOfArms !== '' ? <LiEl>Coat of Arms: {coatOfArms}</LiEl> : null}
+          {words !== '' ? <LiEl>Words: {words}</LiEl> : null}
+          {seats[0] !== '' ? <LiEl>Seats: {seats}</LiEl> : null}
+          {diedOut !== '' ? <LiEl>Died Out: {diedOut}</LiEl> : null}
+        </Details>
       )}
     </CardWrapper>
   )
 }
 
 const CardWrapper = styled.section`
-  margin: 3px;
+  margin: 10px;
   padding: 10px;
   border: 1px solid white;
-  width: 50vh;
+  width: 45vh;
   border-radius: 10px;
   background: var(--white);
   box-shadow: var(--light-grey) 0px 2px 5px -1px, var(--black) 0px 1px 3px -1px;
@@ -64,7 +64,22 @@ const CardWrapper = styled.section`
   letter-spacing: 0.1em;
   list-style: none;
   display: grid;
+  align-items: center;
   grid-template-columns: 7fr 3fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: 'Text Image';
+  grid-template-rows: 1fr; ;
+`
+
+const Details = styled.ul`
+  list-style-type: none;
+  margin: 0;
+`
+
+const SubTitle = styled.h2`
+  text-align: left;
+  margin: 10px;
+`
+
+const LiEl = styled.li`
+  font-size: 10px;
+  font-weight: 200;
 `
