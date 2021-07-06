@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import Card from './Card'
 
-function App() {
+export default function App() {
+  const url = 'https://www.anapioficeandfire.com/api/houses?pageSize=10'
+  const [houses, setHouses] = useState(null)
+
+  React.useEffect(() => {
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        setHouses(data)
+      })
+      .catch(error => console.error(error))
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <h1>Game of Thrones</h1>
+      <h2>House</h2>
+      <div>
+        {houses &&
+          houses.map((house, index) => <Card key={index} house={house} />)}
+      </div>
+    </>
+  )
 }
-
-export default App;
